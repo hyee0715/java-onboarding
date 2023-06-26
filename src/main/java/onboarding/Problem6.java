@@ -13,9 +13,6 @@ public class Problem6 {
     private static HashMap<String, ArrayList<String>> findDuplicateNickname(String nickname, List<List<String>> forms, HashMap<String, ArrayList<String>> map) {
         for (int i = 0; i < nickname.length() - 1; i++) {
             String partialNickname = getPartialNicknameToValidate(i, nickname);
-
-            if (isAlreadyChecked(map, partialNickname))
-                continue;
         }
 
         return map;
@@ -30,11 +27,5 @@ public class Problem6 {
 
         String partialNicknameToValidate = sb.toString();
         return partialNicknameToValidate;
-    }
-
-    private static boolean isAlreadyChecked(HashMap<String, ArrayList<String>> map, String partialNickname) {
-        if (map.containsKey(partialNickname))
-            return true;
-        return false;
     }
 }
