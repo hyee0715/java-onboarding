@@ -6,17 +6,13 @@ public class Problem2 {
     public static String solution(String cryptogram) {
         String answer = "answer";
 
-        answer = decode(cryptogram);
+        decode(cryptogram);
 
         return answer;
     }
 
-    private static String decode(String cryptogram) {
+    private static void decode(String cryptogram) {
         Stack<Character> stack = checkDuplicateCharacter(cryptogram);
-
-        String decodingResult = getDecodingResult(stack);
-
-        return decodingResult;
     }
 
     private static Stack<Character> checkDuplicateCharacter(String cryptogram) {
@@ -52,20 +48,5 @@ public class Problem2 {
         }
 
         return prevRemoved;
-    }
-
-
-    private static String getDecodingResult(Stack<Character> stack) {
-        StringBuilder sb = new StringBuilder();
-
-        while (!stack.empty()) {
-            sb.append(stack.peek());
-            stack.pop();
-        }
-
-        sb.reverse();
-        String ret = sb.toString();
-
-        return ret;
     }
 }
