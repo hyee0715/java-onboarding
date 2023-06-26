@@ -6,16 +6,7 @@ import java.util.List;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
-        List<String> answer = new ArrayList<>();
-
-        HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-
-        for (int i = 0; i < forms.size(); i++) {
-            String nickname = forms.get(i).get(1);
-
-            map = findDuplicateNickname(nickname, forms, map);
-        }
-
+        List<String> answer = List.of("answer");
         return answer;
     }
 
@@ -27,8 +18,6 @@ public class Problem6 {
                 continue;
 
             map = duplicateCheck(forms, partialNickname, map);
-
-            map = removeNoDuplicateNicknameFromMap(map, partialNickname);
         }
 
         return map;
@@ -79,14 +68,6 @@ public class Problem6 {
             list.add(email);
             map.put(partialNickname, list);
         }
-        return map;
-    }
-
-    private static HashMap<String, ArrayList<String>> removeNoDuplicateNicknameFromMap(HashMap<String, ArrayList<String>> map, String partialNickname) {
-        if (map.get(partialNickname).size() == 1) {
-            map.remove(partialNickname);
-        }
-
         return map;
     }
 }
